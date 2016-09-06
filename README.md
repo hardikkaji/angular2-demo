@@ -1,6 +1,6 @@
-angular2-demos
+# angular2-demo
 
-This repository has just 5 basic commits on master by three different coders, providing a basic commit structure for learning exploring Git commands.
+This repository is used for maintaing my Angular 2 work which mostly includes demos.
 
 ## Usage
 
