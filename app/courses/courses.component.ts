@@ -4,20 +4,19 @@ import {CourseService} from './course.service';
 @Component({
     selector: 'courses',
     providers: [CourseService],
-    template: `
-        <h2>{{ title }}</h2>
-        <ul>
-            <li *ngFor="#course of courses">
-                {{ course }}
-            </li>
-        </ul>
-    `
+    templateUrl: 'app/courses/courses.component.html'
 })
 export class CoursesComponent { 
     title: string = 'Courses';
     courses: string[];
+    courseName: string;
 
     constructor(private courseService: CourseService) { 
         this.courses = courseService.getCourses();
+    }
+
+    addCourse() {
+        this.courseService.addCourse(this.courseName);
+        this.courseName = '';
     }
 }

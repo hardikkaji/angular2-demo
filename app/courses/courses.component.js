@@ -27,11 +27,15 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
                     this.title = 'Courses';
                     this.courses = courseService.getCourses();
                 }
+                CoursesComponent.prototype.addCourse = function () {
+                    this.courseService.addCourse(this.courseName);
+                    this.courseName = '';
+                };
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'courses',
                         providers: [course_service_1.CourseService],
-                        template: "\n        <h2>{{ title }}</h2>\n        <ul>\n            <li *ngFor=\"#course of courses\">\n                {{ course }}\n            </li>\n        </ul>\n    "
+                        templateUrl: 'app/courses/courses.component.html'
                     }), 
                     __metadata('design:paramtypes', [course_service_1.CourseService])
                 ], CoursesComponent);
