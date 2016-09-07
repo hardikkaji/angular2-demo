@@ -1,0 +1,17 @@
+<div class="container">
+    <h2 class="page-header">{{ title }}</h2>
+     <div class="row">
+        <div class="col-md-3 form-group">
+            <input [(ngModel)]="authorName" class="form-control" 
+                placeholder="Enter Author Name" />
+        </div>
+        <div class="col-md-9">
+            <button type="button" (click)="addAuthor()" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+    <ul>
+        <li *ngFor="#author of authors">
+            {{ author }}
+        </li>
+    </ul>
+</div>

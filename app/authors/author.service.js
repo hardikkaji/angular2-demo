@@ -1,4 +1,4 @@
-System.register(['angular2/core', './authors/authors.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,33 @@ System.register(['angular2/core', './authors/authors.component'], function(expor
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, authors_component_1;
-    var AppComponent;
+    var core_1;
+    var AuthorService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (authors_component_1_1) {
-                authors_component_1 = authors_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            AuthorService = (function () {
+                function AuthorService() {
+                    this.authors = ['Author 1', 'Author 2', 'Author 3'];
                 }
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: 'my-app',
-                        directives: [authors_component_1.AuthorsComponent],
-                        template: "<h1>My Application</h1>\n        <authors></authors>\n    "
-                    }), 
+                AuthorService.prototype.getAuthors = function () {
+                    // TODO: Write some http call.
+                    return this.authors;
+                };
+                AuthorService.prototype.addAuthor = function (authorName) {
+                    this.authors.push(authorName);
+                };
+                AuthorService = __decorate([
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], AuthorService);
+                return AuthorService;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("AuthorService", AuthorService);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=author.service.js.map
